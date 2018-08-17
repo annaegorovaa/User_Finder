@@ -1,4 +1,4 @@
-# Get Random User App
+# User Finder App
 Shows random users.
 
 # Implemented Features
