@@ -1,22 +1,25 @@
+const userDiv = document.getElementById('user-div');
+
 getUser();
 
 document.getElementById('get-user').addEventListener('click', getUser);
 
 function getUser() {
+  userDiv.innerHTML = '';
+  document.getElementById('loader').style.display = 'block';
   axios.get('https://randomuser.me/api')
     .then(function (response) {
+      document.getElementById('loader').style.display = 'none';
       render(response.data.results[0]);
     })
     .catch(function () {
+      document.getElementById('loader').style.display = 'none';
       showError();
     }
     );
-
 }
 
 function render(obj) {
-  const userDiv = document.getElementById('user-div');
-  userDiv.innerHTML = '';
   let user = document.createElement('div');
   userDiv.appendChild(user);
   user.setAttribute('id', 'user');
