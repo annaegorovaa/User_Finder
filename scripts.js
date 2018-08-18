@@ -36,15 +36,15 @@ function createAvatar(obj) {
 
 function createUserData(obj) {
   let userData = document.createElement('div');
-  userData.setAttribute('id', 'data');
   let name = document.createElement('p');
+  let age = document.createElement('p');
+  let email = document.createElement('p');
+  userData.setAttribute('id', 'data');
   name.innerText =
       `Name: ${obj.name.first.charAt(0).toUpperCase()}${obj.name.first.slice(1)} ${obj.name.last.charAt(0).toUpperCase()}${obj.name.last.slice(1)}\n`;
   userData.appendChild(name);
-  let age = document.createElement('p');
   age.innerText += `Age: ${obj.dob.age}\n`;
   userData.appendChild(age);
-  let email = document.createElement('p');
   email.innerText += `Email: ${obj.email}`;
   userData.appendChild(email);
   return userData;
