@@ -1,3 +1,5 @@
+getUser();
+
 document.getElementById('get-user').addEventListener('click', getUser);
 
 function getUser() {
