@@ -1,23 +1,26 @@
 const userDiv = document.getElementById('user-div');
+const getUserButton = document.getElementById('get-user');
 
 getUser();
 
-document.getElementById('get-user').addEventListener('click', getUser);
+getUserButton.addEventListener('click', getUser);
 
 function getUser() {
+  getUserButton.disabled = true;
   userDiv.innerHTML = '';
   document.getElementById('loader').style.display = 'block';
-  axios.get('https://randomuser.me/api')
-    .then(function (response) {
-      document.getElementById('loader').style.display = 'none';
-      render(response.data.results[0]);
-    })
-    .catch(function (error) {
-      document.getElementById('loader').style.display = 'none';
-      console.log(error);
-      showError();
-    }
-    );
+  setTimeout(() => {
+    axios.get('https://randomuser.me/api')
+      .then(function (response) {
+        document.getElementById('loader').style.display = 'none';
+        render(response.data.results[0]);
+      })
+      .catch(function (error) {
+        document.getElementById('loader').style.display = 'none';
+        console.log(error);
+        showError();
+      });
+  }, 1000);
 }
 
 function render(obj) {
@@ -29,6 +32,7 @@ function render(obj) {
   user.appendChild(avatar);
   let userData = createUserData(obj);
   user.appendChild(userData);
+  getUserButton.disabled = false;
 }
 
 function createAvatar(obj) {
@@ -62,4 +66,5 @@ function showError() {
   userDiv.appendChild(error);
   error.setAttribute('id', 'user');
   error.innerText = 'Sorry. Try again.';
+  getUserButton.disabled = false;
 }
