@@ -12,14 +12,16 @@ function getUser() {
       document.getElementById('loader').style.display = 'none';
       render(response.data.results[0]);
     })
-    .catch(function () {
+    .catch(function (error) {
       document.getElementById('loader').style.display = 'none';
+      console.log(error);
       showError();
     }
     );
 }
 
 function render(obj) {
+  userDiv.innerHTML = '';
   let user = document.createElement('div');
   userDiv.appendChild(user);
   user.setAttribute('id', 'user');
