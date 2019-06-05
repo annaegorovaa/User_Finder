@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/annaegorovaa/Promise.git"
+    "url": "git+https://github.com/annaegorovaa/User_Finder.git"
   },
   "author": "Anna Egorova",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/annaegorovaa/Promise/issues"
+    "url": "https://github.com/annaegorovaa/User_Finder/issues"
   },
-  "homepage": "https://github.com/annaegorovaa/Promise#readme",
+  "homepage": "https://github.com/annaegorovaa/User_Finder#readme",
   "devDependencies": {
-    "eslint": "^5.13.0"
+    "eslint": "5.16.0"
   }
 }
